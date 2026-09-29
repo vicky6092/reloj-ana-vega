@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cálculo de tiempo transcurrido</title>
+</head>
+<body>
+
+    <main class="pagina">
+        <section class="tarjeta" aria-labelledby="titulo">
+
+            <header class="encabezado">
+                <h1 id="titulo" class="titulo">Cálculo de tiempo transcurrido</h1>
+                <p class="descripcion">Ingresa dos horas del día y elige AM o PM en cada una.</p>
+            </header>
+
+            <form id="formulario" novalidate>
+
+                <!-- HORA INICIAL -->
+                <fieldset class="seccion">
+                    <legend class="subtitulo">Hora inicial</legend>
+                    <div class="fila-tiempo">
+                        <div class="campo">
+                            <label for="hi">Hora</label>
+                            <input type="number" id="hi" class="entrada" min="1" max="12" placeholder="12" inputmode="numeric">
+                        </div>
+                        <div class="campo">
+                            <label for="mi">Minutos</label>
+                            <input type="number" id="mi" class="entrada" min="0" max="59" placeholder="00" inputmode="numeric">
+                        </div>
+                        <div class="campo">
+                            <label for="si">Segundos</label>
+                            <input type="number" id="si" class="entrada" min="0" max="59" placeholder="00" inputmode="numeric">
+                        </div>
+                        <div class="periodo" role="group" aria-label="AM o PM de la hora inicial">
+                            <input type="radio" name="periodo-inicial" id="pi-am" value="AM" checked>
+                            <label for="pi-am">AM</label>
+                            <input type="radio" name="periodo-inicial" id="pi-pm" value="PM">
+                            <label for="pi-pm">PM</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- HORA FINAL -->
+                <fieldset class="seccion">
+                    <legend class="subtitulo">Hora final</legend>
+                    <div class="fila-tiempo">
+                        <div class="campo">
+                            <label for="hf">Hora</label>
+                            <input type="number" id="hf" class="entrada" min="1" max="12" placeholder="12" inputmode="numeric">
+                        </div>
+                        <div class="campo">
+                            <label for="mf">Minutos</label>
+                            <input type="number" id="mf" class="entrada" min="0" max="59" placeholder="00" inputmode="numeric">
+                        </div>
+                        <div class="campo">
+                            <label for="sf">Segundos</label>
+                            <input type="number" id="sf" class="entrada" min="0" max="59" placeholder="00" inputmode="numeric">
+                        </div>
+                        <div class="periodo" role="group" aria-label="AM o PM de la hora final">
+                            <input type="radio" name="periodo-final" id="pf-am" value="AM" checked>
+                            <label for="pf-am">AM</label>
+                            <input type="radio" name="periodo-final" id="pf-pm" value="PM">
+                            <label for="pf-pm">PM</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- BOTONES -->
+                <div class="acciones">
+                    <button type="submit" class="boton boton-principal">Procesar</button>
+                    <button type="button" class="boton boton-secundario" id="limpiar">Limpiar</button>
+                </div>
+
+                <!-- RESULTADO -->
+                <section class="seccion resultado" aria-labelledby="titulo-resultado">
+                    <h2 id="titulo-resultado" class="subtitulo">Resultado</h2>
+                    <div class="fila-resultado">
+                        <div class="campo">
+                            <label for="hr">Hora</label>
+                            <input type="text" id="hr" class="entrada" placeholder="00" readonly>
+                        </div>
+                        <div class="campo">
+                            <label for="mr">Minutos</label>
+                            <input type="text" id="mr" class="entrada" placeholder="00" readonly>
+                        </div>
+                        <div class="campo">
+                            <label for="sr">Segundos</label>
+                            <input type="text" id="sr" class="entrada" placeholder="00" readonly>
+                        </div>
+                    </div>
+
+                    <div aria-live="polite">
+                        <p id="resumen" class="resumen"></p>
+                        <p id="mensaje" class="mensaje">Aquí aparecerá la diferencia de horas.</p>
+                    </div>
+                </section>
+
+            </form>
+        </section>
+    </main>
+
+    <script src="codigo.js"></script>
+</body>
+</html>
